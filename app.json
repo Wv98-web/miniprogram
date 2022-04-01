@@ -1,0 +1,42 @@
+{
+  "pages":[
+    "pages/home/home",
+    "pages/message/message",
+    "pages/contact/contact",
+    "pages/index/index"
+  ],
+  "window":{
+    "navigationBarBackgroundColor": "#2b4b6b",
+    "navigationBarTitleText": "讯梦国际",
+    "navigationBarTextStyle":"white",
+    "onReachBottomDistance": 50
+  },
+  "tabBar": {
+    "position": "bottom",
+    "borderStyle": "white",
+    "color": "#000",
+    "backgroundColor": "#efefef",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "/images/home.png",
+        "selectedIconPath": "/images/home_active.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息",
+        "iconPath": "/images/message.png",
+        "selectedIconPath": "/images/message_active.png"
+      },
+      {
+        "pagePath": "pages/contact/contact",
+        "text": "联系我们",
+        "iconPath": "/images/contact.png",
+        "selectedIconPath": "/images/contact_active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
