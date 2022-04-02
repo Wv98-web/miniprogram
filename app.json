@@ -3,7 +3,8 @@
     "pages/home/home",
     "pages/message/message",
     "pages/contact/contact",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/shopList/shopList"
   ],
   "window":{
     "navigationBarBackgroundColor": "#2b4b6b",

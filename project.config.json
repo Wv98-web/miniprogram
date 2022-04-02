@@ -49,7 +49,7 @@
     "compileType": "miniprogram",
     "libVersion": "2.23.2",
     "appid": "wx9fa39655b02f1885",
-    "projectname": "wxamp",
+    "projectname": "miniprogram",
     "debugOptions": {
         "hidedInDevtools": []
     },

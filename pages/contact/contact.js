@@ -6,11 +6,16 @@ Page({
      */
     data: {
         // 随机颜色列表
-        colorList: []
+        colorList: [],
+        // 下拉触底节流处理
+        isloading: false 
     },
 
     // 获取随机颜色的方法
     getColors() {
+        this.setData({
+            isloading: true
+        })
         wx.showLoading({
             title: '加载中...',
         })
@@ -21,10 +26,12 @@ Page({
                 this.setData({
                     colorList: [...this.data.colorList, ...res.data]
                 })
-
-                setTimeout(function () {
-                    wx.hideLoading()
-                }, 2000)
+            },
+            complete: () => {
+                wx.hideLoading()
+                this.setData({
+                    isloading: false
+                })
             }
         })
     },
@@ -75,6 +82,8 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
+        if (this.data.isloading) return;
+
         this.getColors()
     },
 
