@@ -2,6 +2,8 @@
 <view>{{m1.toUpper(username)}}</view>
 <view>{{m2.toLower(username2)}}</view>
 
+<my-test max="11"></my-test>
+
 <wxs module="m1">
     module.exports.toUpper = function (str) {
         return str.toUpperCase()
