@@ -6,6 +6,31 @@
     "pages/index/index",
     "pages/shopList/shopList"
   ],
+  "subPackages": [
+    {
+      "root": "packageA",
+      "name": "p1",
+      "pages": [
+        "pages/cat/cat",
+        "pages/dog/dog"
+      ]
+    },
+    {
+      "root": "packageB",
+      "name": "p2",
+      "pages": [
+        "pages/apple/apple",
+        "pages/banana/banana"
+      ],
+      "independent": true
+    }
+  ],
+  "preloadRule": {
+    "pages/message/message": {
+      "packages": ["p1"],
+      "network": "all"
+    }
+  },
   "window":{
     "navigationBarBackgroundColor": "#2b4b6b",
     "navigationBarTitleText": "讯梦国际",
