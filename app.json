@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/home/home",
     "pages/message/message",
     "pages/contact/contact",
@@ -27,20 +27,24 @@
   ],
   "preloadRule": {
     "pages/message/message": {
-      "packages": ["p1"],
+      "packages": [
+        "p1"
+      ],
       "network": "all"
     }
   },
-  "window":{
+  "window": {
     "navigationBarBackgroundColor": "#2b4b6b",
     "navigationBarTitleText": "讯梦国际",
-    "navigationBarTextStyle":"white",
+    "navigationBarTextStyle": "white",
     "onReachBottomDistance": 50
   },
   "tabBar": {
+    "custom": true,
     "position": "bottom",
     "borderStyle": "white",
     "color": "#000",
+    "selectedColor": "#2b4b6b",
     "backgroundColor": "#efefef",
     "list": [
       {
@@ -66,6 +70,8 @@
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
     "van-button": "@vant/weapp/button/index",
-    "my-numbers": "./components/numbers/numbers"
+    "my-numbers": "./components/numbers/numbers",
+    "van-tabbar": "@vant/weapp/tabbar/index",
+    "van-tabbar-item": "@vant/weapp/tabbar-item/index"
   }
 }
