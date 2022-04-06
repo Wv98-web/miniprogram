@@ -40,6 +40,7 @@
   },
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
-    "van-button": "@vant/weapp/button/index"
+    "van-button": "@vant/weapp/button/index",
+    "my-numbers": "./components/numbers/numbers"
   }
 }
