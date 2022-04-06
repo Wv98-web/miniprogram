@@ -19,3 +19,4 @@
 <button bindtap="getChild" type="primary">获取子组件实例对象</button>
 
 <van-button type="primary">默认按钮</van-button>
+<van-button type="danger">默认按钮</van-button>

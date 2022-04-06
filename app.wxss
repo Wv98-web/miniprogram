@@ -1,6 +1,12 @@
 /**app.wxss**/
 @import "/common/common.wxss";
 
+page {
+  /* 定制警告按钮的背景颜色和边框颜色 */
+  --button-danger-background-color: #c00000;
+  --button-danger-boder-color: #d60000;
+}
+
 .container {
   height: 100%;
   display: flex;
