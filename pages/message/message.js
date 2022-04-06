@@ -6,7 +6,19 @@ Page({
      */
     data: {
         username: "zhangsan",
-        username2: "WUWEI"
+        username2: "WUWEI",
+        count: 0
+    },
+
+    syncCount(e) {
+        this.setData({
+            count: e.detail.value
+        })
+    },
+
+    getChild() {
+        const child = this.selectComponent(".customA")
+        child.addCount()
     },
 
     /**
