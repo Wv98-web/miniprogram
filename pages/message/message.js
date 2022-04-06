@@ -1,4 +1,7 @@
 // pages/message/message.js
+import { createStoreBindings } from 'mobx-miniprogram-bindings'
+import { store } from '../../store/store'
+
 Page({
 
     /**
@@ -21,11 +24,27 @@ Page({
         child.addCount()
     },
 
+    async getInfo() {
+        const { data: res } = await wx.p.request({
+            methods: 'GET',
+            url: 'https://www.escook.cn/api/get',
+            data: { name: 'wuwei', age: 24 }
+        })
+    },
+
+    btnHandler1(e) {
+        this.updateNum1(e.target.dataset.step)
+    },
+
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        this.storeBindings = createStoreBindings(this, {
+            store,
+            fields: ['num1', 'num2', 'sum'],
+            actions: ['updateNum1']
+        })
     },
 
     /**
@@ -53,7 +72,7 @@ Page({
      * 生命周期函数--监听页面卸载
      */
     onUnload: function () {
-
+        this.storeBindings.destroyStoreBindings()
     },
 
     /**
