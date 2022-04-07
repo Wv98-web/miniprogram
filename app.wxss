@@ -1,5 +1,6 @@
 /**app.wxss**/
 @import "/common/common.wxss";
+@import '/styles/iconfont.wxss';
 
 page {
   /* 定制警告按钮的背景颜色和边框颜色 */
@@ -11,12 +12,20 @@ page {
   margin-bottom: 100rpx;
 }
 
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
+page,
+view,
+text,
+swiper,
+swiper-item,
+image,
+navigator {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
-} 
+}
+
+page {
+  /* 定义主题颜色 */
+  --themeColor: #2b4b6b;
+  font-size: 28rpx;
+}

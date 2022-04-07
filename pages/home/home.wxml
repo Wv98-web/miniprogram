@@ -1,20 +1,28 @@
 <!--pages/home/home.wxml-->
 <view>
-    <swiper indicator-dots="true" circular="true">
-        <swiper-item wx:for="{{swiperList}}" wx:key="id">
-            <image src="{{item.image}}"></image>
+    <SearchInput></SearchInput>
+
+    <swiper indicator-dots="true" circular="true" autoplay="true">
+        <swiper-item wx:for="{{swiperList}}" wx:key="goods_id">
+            <navigator url="{{item.navigator_url}}" open-type="navigate">
+                <image mode="widthFix" src="{{item.image_src}}"></image>
+            </navigator>
         </swiper-item>
     </swiper>
 
-    <view class="grid-list">
-        <navigator class="grid-item" url="/pages/shopList/shopList?id={{item.id}}&title={{item.name}}" open-type="navigate" wx:for="{{gridList}}" wx:key="id">
-            <image src="{{item.icon}}"></image>
-            <text>{{item.name}}</text>
+    <view class="index_cate">
+        <navigator wx:for="{{catesList}}" wx:key="name">
+            <image mode="widthFix" src="{{item.image_src}}"></image>
         </navigator>
     </view>
 
-    <view class="img-box">
-        <view bindtap="gotoMessage">推荐</view>
-        <view bindtap="gotoInfo">论坛</view>
+    <view class="index_floor">
+        <view class="floor_group">
+            <view class="floor_title">
+                <image></image>
+            </view>
+
+            <view class="floor_list"></view>
+        </view>
     </view>
 </view>

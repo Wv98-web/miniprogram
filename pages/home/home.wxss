@@ -1,11 +1,27 @@
 /* pages/home/home.wxss */
+view {
+    color: var(--themeColor);
+}
+
 swiper {
-    height: 350rpx;
+    height: 340rpx;
 }
 
 swiper image {
     width: 100%;
-    height: 100%;
+}
+
+.index_cate {
+    display: flex;
+}
+
+.index_cate navigator {
+    flex: 1;
+    padding: 20rpx;
+}
+
+.index_cate navigator image {
+    width: 100%;
 }
 
 .grid-list {
@@ -35,26 +51,4 @@ swiper image {
 .grid-item text {
     font-size: 24rpx;
     margin-top: 10rpx;
-}
-
-.img-box {
-    display: flex;
-    justify-content: space-around;
-    padding: 20rpx 10rpx;
-}
-
-.img-box view {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 36rpx;
-    font-weight: bold;
-    color: #fff;
-    width: 45%;
-    height: 160rpx;
-    background-color: palevioletred;
-}
-
-.img-box view:nth-child(2) {
-    background-color: lightslategray;
 }

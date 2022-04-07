@@ -1,40 +1,45 @@
 // pages/home/home.js
-Page({
+import { request } from '../../request/index'
 
+Page({
     /**
      * 页面的初始数据
      */
     data: {
         // 存放轮播图数据
         swiperList: [],
-        gridList: [],
+        // 导航
+        catesList: [],
+        // 
+        floorList: [],
         // 导航传递过来的参数对象
         query: {}
     },
 
     // 获取轮播图数据
     getSwiperList() {
-        wx.request({
-            url: 'https://www.escook.cn/slides',
-            method: 'GET',
-            success: (res) => {
-                this.setData({
-                    swiperList: res.data
-                })
-            }
+        // api promise化
+        request({ url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata', method: 'GET' }).then(res => {
+            this.setData({
+                swiperList: res.data.message
+            })
         })
     },
 
-    // 获取列表数据
-    getGridList() {
-        wx.request({
-            url: 'https://www.escook.cn/categories',
-            method: 'GET',
-            success: (res) => {
-                this.setData({
-                    gridList: res.data
-                })
-            }
+    // 获取分类导航数据
+    getCatesList() {
+        request({ url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/catitems' }).then(res => {
+            this.setData({
+                catesList: res.data.message
+            })
+        })
+    },
+
+    getFloorList() {
+        request({ url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/floordata' }).then(res => {
+            this.setData({
+                floorList: res.data.message
+            })
         })
     },
 
@@ -57,7 +62,8 @@ Page({
      */
     onLoad: function (options) {
         this.getSwiperList()
-        this.getGridList()
+        this.getCatesList()
+        this.getFloorList()
         this.setData({
             query: options
         })
@@ -102,7 +108,7 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-        console.log('触发上拉')
+
     },
 
     /**

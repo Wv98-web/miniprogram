@@ -4,35 +4,20 @@
     "pages/message/message",
     "pages/contact/contact",
     "pages/index/index",
-    "pages/shopList/shopList"
+    "pages/shopList/shopList",
+    "pages/category/category",
+    "pages/goods_list/goods_list",
+    "pages/goods_detail/goods_detail",
+    "pages/cart/cart",
+    "pages/collect/collect",
+    "pages/order/order",
+    "pages/search/search",
+    "pages/user/user",
+    "pages/feedback/feedback",
+    "pages/login/login",
+    "pages/auth/auth",
+    "pages/pay/pay"
   ],
-  "subPackages": [
-    {
-      "root": "packageA",
-      "name": "p1",
-      "pages": [
-        "pages/cat/cat",
-        "pages/dog/dog"
-      ]
-    },
-    {
-      "root": "packageB",
-      "name": "p2",
-      "pages": [
-        "pages/apple/apple",
-        "pages/banana/banana"
-      ],
-      "independent": true
-    }
-  ],
-  "preloadRule": {
-    "pages/message/message": {
-      "packages": [
-        "p1"
-      ],
-      "network": "all"
-    }
-  },
   "window": {
     "navigationBarBackgroundColor": "#2b4b6b",
     "navigationBarTitleText": "讯梦国际",
@@ -40,10 +25,11 @@
     "onReachBottomDistance": 50
   },
   "tabBar": {
-    "custom": true,
+    "custom": false,
     "color": "#000",
-    "selectedColor": "#2b4b6b",
+    "selectedColor": "#ff2d4a",
     "backgroundColor": "#efefef",
+    "borderStyle": "black",
     "list": [
       {
         "pagePath": "pages/home/home",
@@ -52,16 +38,22 @@
         "selectedIconPath": "/images/home_active.png"
       },
       {
-        "pagePath": "pages/message/message",
-        "text": "消息",
-        "iconPath": "/images/message.png",
-        "selectedIconPath": "/images/message_active.png"
+        "pagePath": "pages/category/category",
+        "text": "分类",
+        "iconPath": "/images/category.png",
+        "selectedIconPath": "/images/category_active.png"
       },
       {
-        "pagePath": "pages/contact/contact",
-        "text": "联系我们",
-        "iconPath": "/images/contact.png",
-        "selectedIconPath": "/images/contact_active.png"
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "/images/cart.png",
+        "selectedIconPath": "/images/cart_active.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "/images/My.png",
+        "selectedIconPath": "/images/My_active.png"
       }
     ]
   },
@@ -70,6 +62,7 @@
     "van-button": "@vant/weapp/button/index",
     "my-numbers": "./components/numbers/numbers",
     "van-tabbar": "@vant/weapp/tabbar/index",
-    "van-tabbar-item": "@vant/weapp/tabbar-item/index"
+    "van-tabbar-item": "@vant/weapp/tabbar-item/index",
+    "SearchInput": "./components/SearchInput/SearchInput"
   }
 }
