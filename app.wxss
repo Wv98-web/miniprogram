@@ -7,6 +7,10 @@ page {
   --button-danger-boder-color: #d60000;
 }
 
+page {
+  margin-bottom: 100rpx;
+}
+
 .container {
   height: 100%;
   display: flex;
