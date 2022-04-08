@@ -1,5 +1,5 @@
 // pages/home/home.js
-import { request } from '../../request/index'
+import { request } from '../../request/request'
 
 Page({
     /**
@@ -19,7 +19,7 @@ Page({
     // 获取轮播图数据
     getSwiperList() {
         // api promise化
-        request({ url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata', method: 'GET' }).then(res => {
+        request({ url: 'home/swiperdata', method: 'GET' }).then(res => {
             this.setData({
                 swiperList: res.data.message
             })
@@ -28,7 +28,7 @@ Page({
 
     // 获取分类导航数据
     getCatesList() {
-        request({ url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/catitems' }).then(res => {
+        request({ url: 'home/catitems' }).then(res => {
             this.setData({
                 catesList: res.data.message
             })
@@ -36,24 +36,10 @@ Page({
     },
 
     getFloorList() {
-        request({ url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/floordata' }).then(res => {
+        request({ url: 'home/floordata' }).then(res => {
             this.setData({
                 floorList: res.data.message
             })
-        })
-    },
-
-    // 跳转到massage页
-    gotoMessage() {
-        wx.switchTab({
-            url: '/pages/message/message'
-        })
-    },
-
-    // 跳转到info页
-    gotoInfo() {
-        wx.navigateTo({
-            url: '/pages/index/index?name=wuwei&age=24'
         })
     },
 

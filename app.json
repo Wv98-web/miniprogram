@@ -3,7 +3,6 @@
     "pages/home/home",
     "pages/message/message",
     "pages/contact/contact",
-    "pages/index/index",
     "pages/shopList/shopList",
     "pages/category/category",
     "pages/goods_list/goods_list",

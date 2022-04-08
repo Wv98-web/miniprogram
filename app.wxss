@@ -29,3 +29,7 @@ page {
   --themeColor: #2b4b6b;
   font-size: 28rpx;
 }
+
+image {
+  width: 100%;
+}

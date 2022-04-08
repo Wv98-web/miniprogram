@@ -1,1 +1,8 @@
 /* pages/cart/cart.wxss */
+.address_btn {
+    padding: 20rpx;
+}
+
+.address_btn button {
+    width: 60%;
+}
