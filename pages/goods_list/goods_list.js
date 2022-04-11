@@ -36,7 +36,7 @@ Page({
     // 获取列表数据
     async getGoodsList() {
         const res = await request({
-            url: "goods/search",
+            url: "/goods/search",
             data: this.QueryParams
         })
         const total = res.data.message.total;

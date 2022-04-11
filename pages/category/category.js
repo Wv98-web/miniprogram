@@ -19,7 +19,7 @@ Page({
     },
 
     async getCates() {
-        const res = await request({ url: 'categories' })
+        const res = await request({ url: '/categories' })
         this.cates = res.data.message
         wx.setStorageSync('cates', { time: Date.now(), data: this.cates })
         let menuList = this.cates.map(item => item.cat_name);
