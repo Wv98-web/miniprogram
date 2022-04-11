@@ -1,18 +1,56 @@
 // pages/order/order.js
-Page({
+import { request } from '../../request/request'
+import regeneratorRuntime from '../../lib/runtime/runtime';
+import { formatTime } from '../../utils/util'
 
+Page({
+    // query
+    QueryParams: {
+        query: "",
+        type: 1,
+        pagenum: 1,
+        pagesize: 10
+    },
     /**
      * 页面的初始数据
      */
     data: {
+        tabs: [
+            { id: 1, value: '全部订单', isActive: true },
+            { id: 2, value: '待付款订单', isActive: false },
+            { id: 3, value: '待收货订单', isActive: false },
+            { id: 4, value: '退款/退货订单', isActive: false },
+        ],
+        orders: []
+    },
 
+    handleTabsItemChange(e) {
+        const { index } = e.detail;
+        let { tabs } = this.data;
+        tabs.forEach((v, i) => i === index ? v.isActive = true : v.isActive = false)
+
+        this.setData({
+            tabs
+        })
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
+    onLoad: async function (options) {
+        this.QueryParams.type = options.type;
+        const type = this.QueryParams.type;
+        const res = await request({
+            url: "/my/orders/all",
+            data: { type }
+        })
+        const { orders } = res.data.message;
 
+        this.setData({
+            orders: orders.map(v=>({
+                ...v,create_time: (new Date(v.create_time*1000).toLocaleString())
+            }))
+        });
     },
 
     /**
