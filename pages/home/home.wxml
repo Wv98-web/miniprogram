@@ -4,7 +4,7 @@
 
     <swiper indicator-dots="true" circular="true" autoplay="true">
         <swiper-item wx:for="{{swiperList}}" wx:key="goods_id">
-            <navigator url="{{item.navigator_url}}">
+            <navigator url="/pages/goods_detail/goods_detail?goods_id=144">
                 <image mode="widthFix" src="{{item.image_src}}"></image>
             </navigator>
         </swiper-item>
@@ -23,7 +23,7 @@
             </view>
 
             <view class="floor_list">
-                <navigator wx:for="{{item1.product_list}}" wx:for-item="item2" wx:for-index="index2" wx:key="name">
+                <navigator url="/pages/goods_list/goods_list?query=汽车" wx:for="{{item1.product_list}}" wx:for-item="item2" wx:for-index="index2" wx:key="name">
                     <image mode="{{index2 === 0 ? 'widthFix': 'scaleToFill'}}" src="{{item2.image_src}}"></image>
                 </navigator>
             </view>
