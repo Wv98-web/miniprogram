@@ -20,8 +20,8 @@
                 <view class="his_num">0</view>
                 <view class="his_name">收藏店铺</view>
             </navigator>
-            <navigator>
-                <view class="his_num">0</view>
+            <navigator url="/pages/collect/collect">
+                <view class="his_num">{{collectNums}}</view>
                 <view class="his_name">收藏商品</view>
             </navigator>
             <navigator>
@@ -49,7 +49,7 @@
                     <view class="iconfont icon-fukuantongzhi"></view>
                     <view class="order_name">待收货</view>
                 </navigator>
-                <navigator url="/pages/order/order?type=4">
+                <navigator url="/pages/order/order">
                     <view class="iconfont icon-tuikuantuihuo"></view>
                     <view class="order_name">退款/退货</view>
                 </navigator>
@@ -65,9 +65,9 @@
                 <text>联系客服</text>
                 <text>400-618-4000</text>
             </view>
-            <view class="app_info_item">
+            <navigator url="/pages/feedback/feedback" class="app_info_item">
                 意见反馈
-            </view>
+            </navigator>
             <view class="app_info_item">
                 关于我们
             </view>

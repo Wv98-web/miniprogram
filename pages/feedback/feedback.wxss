@@ -1,1 +1,45 @@
 /* pages/feedback/feedback.wxss */
+page {
+    background-color: #dedede;
+}
+
+.fb_main .fb_content {
+    background-color: #fff;
+    margin-top: 20rpx;
+}
+
+.fb_content textarea {
+    width: 100%;
+    padding: 20rpx;
+    background-color: antiquewhite;
+}
+
+.fb_tool {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.fb_tool button {
+    width: 80rpx;
+    height: 80rpx;
+    padding: 0;
+    margin: 0;
+    margin-left: 20rpx;
+    background-color: #ccc;
+    color: #fff;
+    font-size: 46rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_btn_wrap {
+    display: flex;
+    justify-content:flex-end;
+}
+
+.form_btn_wrap button {
+    background-color: var(--themeColor);
+    color: #fff;
+    width: 200rpx;
+}

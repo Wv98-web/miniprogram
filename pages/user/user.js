@@ -6,6 +6,7 @@ Page({
      */
     data: {
         userInfo: {},
+        collectNums: 0
     },
 
     /**
@@ -26,10 +27,12 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        const userInfo = wx.getStorageSync('userInfo')
+        const userInfo = wx.getStorageSync('userInfo');
+        const collect = wx.getStorageSync('collect');
         this.setData({
-            userInfo
-        })
+            userInfo,
+            collectNums: collect.length
+        });
     },
 
     /**

@@ -1,7 +1,6 @@
 // pages/order/order.js
 import { request } from '../../request/request'
 import regeneratorRuntime from '../../lib/runtime/runtime';
-import { formatTime } from '../../utils/util'
 
 Page({
     // query
@@ -16,16 +15,15 @@ Page({
      */
     data: {
         tabs: [
-            { id: 1, value: '全部订单', isActive: true },
-            { id: 2, value: '待付款订单', isActive: false },
-            { id: 3, value: '待收货订单', isActive: false },
-            { id: 4, value: '退款/退货订单', isActive: false },
+            { id: 0, value: '全部订单', isActive: true },
+            { id: 1, value: '待付款订单', isActive: false },
+            { id: 2, value: '待收货订单', isActive: false },
+            { id: 3, value: '退款/退货订单', isActive: false },
         ],
         orders: []
     },
 
-    handleTabsItemChange(e) {
-        const { index } = e.detail;
+    changeByIndex(index) {
         let { tabs } = this.data;
         tabs.forEach((v, i) => i === index ? v.isActive = true : v.isActive = false)
 
@@ -34,23 +32,44 @@ Page({
         })
     },
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: async function (options) {
-        this.QueryParams.type = options.type;
-        const type = this.QueryParams.type;
+    handleTabsItemChange(e) {
+        const { index } = e.detail;
+        this.changeByIndex(index);
+        this.getOrders(index + 1);
+    },
+
+    async getOrders(type) {
         const res = await request({
             url: "/my/orders/all",
             data: { type }
         })
         const { orders } = res.data.message;
-
         this.setData({
-            orders: orders.map(v=>({
-                ...v,create_time: (new Date(v.create_time*1000).toLocaleString())
+            orders: orders.map(v => ({
+                ...v, create_time: (new Date(v.create_time * 1000).toLocaleString())
             }))
         });
+        
+        wx.stopPullDownRefresh()
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: async function (options) {
+        // this.QueryParams.type = options.type;
+        // const type = this.QueryParams.type;
+        // const res = await request({
+        //     url: "/my/orders/all",
+        //     data: { type }
+        // })
+        // const { orders } = res.data.message;
+
+        // this.setData({
+        //     orders: orders.map(v => ({
+        //         ...v, create_time: (new Date(v.create_time * 1000).toLocaleString())
+        //     }))
+        // });
     },
 
     /**
@@ -64,7 +83,19 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        const token = wx.getStorageSync('token');
+        if (!token) {
+            wx.navigateTo({
+                url: '/pages/auth/auth',
+            })
+            return
+        }
 
+        let pages = getCurrentPages();
+        let currentPage = pages[pages.length - 1];
+        const { type } = currentPage.options;
+        this.changeByIndex(type - 1);
+        this.getOrders(type);
     },
 
     /**
@@ -92,7 +123,11 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-
+        let pages = getCurrentPages();
+        let currentPage = pages[pages.length - 1];
+        const { type } = currentPage.options;
+        this.changeByIndex(type - 1);
+        this.getOrders(type);
     },
 
     /**
